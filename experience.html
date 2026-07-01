@@ -128,26 +128,11 @@
         </div>
       </div>
 
-      <div class="exp-grid" style="margin-top:6px;">
-        <figure style="margin:0;">
-          <img src="assets/verif-logs-fortigate.png" alt="Vérification de la configuration syslogd sur le FortiGate via CLI : status enable, serveur, mode udp, port 514" style="width:100%; border-radius:6px; border:1px solid var(--paper-line); display:block;">
-          <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-on-paper-muted); margin-top:8px; text-align:center;">Vérification de l'export syslog côté FortiGate — <code>get log syslogd setting</code></figcaption>
-        </figure>
-        <figure style="margin:0;">
-          <img src="assets/config-rsyslog.png" alt="Configuration de Rsyslog : modules imudp et imtcp activés sur le port 514" style="width:100%; border-radius:6px; border:1px solid var(--paper-line); display:block;">
-          <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-on-paper-muted); margin-top:8px; text-align:center;">Activation de la réception UDP/TCP dans rsyslog.conf</figcaption>
-        </figure>
-      </div>
 
       <div class="case" style="margin-top:26px; border-left:2px solid var(--copper);">
         <h4 style="color:var(--copper-dim);">Dépannage &amp; vérification</h4>
         <p>Les logs n'arrivaient pas au premier test : diagnostic en trois temps — connectivité réseau (ping FortiGate ↔ Kali), écoute du port 514 confirmée via netstat, puis ouverture explicite du port sur le firewall local (ufw) qui bloquait le trafic entrant par défaut.</p>
       </div>
-
-      <figure style="margin:16px 0 0;">
-        <img src="assets/verif-port-514.png" alt="Vérification que le port 514 est bien en écoute côté Kali via netstat -tulnp" style="width:100%; max-width:520px; border-radius:6px; border:1px solid var(--paper-line); display:block;">
-        <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-on-paper-muted); margin-top:8px;">Port 514 confirmé en écoute (UDP/TCP, IPv4/IPv6) — <code>netstat -tulnp | grep 514</code></figcaption>
-      </figure>
 
       <div class="result-tag" style="margin-top:20px;">→ logs FortiGate centralisés et consultables en temps réel, base posée pour une évolution vers un stack ELK</div>
     </div>
