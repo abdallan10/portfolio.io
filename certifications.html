@@ -43,21 +43,28 @@
   }
   .cert-slot.is-filled{padding:0; border-style:solid;}
   .cert-slot img{width:100%; height:100%; object-fit:cover; display:block;}
-  .cert-upload{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+  .cert-link-box{display:flex; flex-direction:column; gap:8px;}
+  .cert-link-input{
     width:100%;
+    border:1px solid var(--paper-line);
+    border-radius:5px;
+    padding:8px 10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--text-on-paper);
+    background:#fff;
+  }
+  .cert-link-button{
+    width:100%;
+    border:1px solid var(--paper-line);
+    border-radius:5px;
+    padding:8px 10px;
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
     color:var(--copper-dim);
-    border:1px dashed var(--paper-line);
-    border-radius:5px;
-    padding:8px 10px;
-    cursor:pointer;
     background:rgba(201,122,59,0.05);
+    cursor:pointer;
   }
-  .cert-upload input{display:none;}
   .cert-body h4{font-size:15px; font-weight:600;}
   .cert-issuer{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-on-paper-muted); margin-top:4px;}
 
@@ -102,7 +109,7 @@
   <div class="wrap">
     <div class="eyebrow">Certifications</div>
     <h1>Certifications techniques</h1>
-    <p>Cisco, Stormshield, ANSSI. Les emplacements ci-dessous sont volontairement vides pour que vous puissiez ajouter vos certificats facilement.</p>
+    <p>Cisco, Stormshield, ANSSI. Collez ici un lien Google Drive public pour chaque certificat afin de l’afficher directement.</p>
   </div>
 </div>
 
@@ -186,13 +193,11 @@
     </div>
 
     <div class="howto reveal">
-      <b>Comment remplir chaque emplacement (deux méthodes, choisis-en une) :</b><br><br>
-      <b>Méthode simple — image du certificat :</b><br>
-      1. Exporte ou capture chaque certificat en image (PNG/JPG).<br>
-      2. Dépose les fichiers dans le dossier <b>assets/</b> du repo.<br>
-      3. Remplace le <code>&lt;div class="cert-slot"&gt;à uploader&lt;/div&gt;</code> correspondant par <code>&lt;img src="assets/nom-du-fichier.png" style="width:100%; border-radius:5px;"&gt;</code>.<br><br>
-      <b>Méthode Drive — si tu préfères l'aperçu intégré :</b><br>
-      Remets un embed uniquement une fois que le fichier Drive est en partage public ("Toute personne disposant du lien"), sinon tu retomberas sur l'erreur "le fichier n'existe pas" déjà rencontrée.
+      <b>Comment utiliser les emplacements :</b><br><br>
+      1. Ouvre le certificat dans Google Drive.<br>
+      2. Clique sur <b>Partager</b> puis sur <b>Toute personne disposant du lien</b>.<br>
+      3. Copie le lien de partage et colle-le dans le champ correspondant.<br>
+      4. Cliquez sur <b>Afficher</b> pour l’afficher directement dans la carte.
     </div>
   </div>
 </section>
@@ -218,7 +223,7 @@
 
 <script src="common.js"></script>
 <script>
-  const storagePrefix = 'portfolio-cert-';
+  const storagePrefix = 'portfolio-cert-link-';
 
   function slugify(value) {
     return value
@@ -228,55 +233,68 @@
       .replace(/(^-|-$)/g, '');
   }
 
-  function setPreview(card, imageData) {
+  function normalizeDriveLink(link) {
+    const trimmed = link.trim();
+    if (!trimmed) return '';
+
+    const idMatch = trimmed.match(/\/d\/([a-zA-Z0-9-_]+)/) || trimmed.match(/[?&]id=([a-zA-Z0-9-_]+)/);
+    if (idMatch) {
+      return `https://drive.google.com/uc?export=view&id=${idMatch[1]}`;
+    }
+
+    return trimmed;
+  }
+
+  function setPreview(card, value) {
     const slot = card.querySelector('.cert-slot');
     if (!slot) return;
+
     slot.innerHTML = '';
-    if (imageData) {
-      const img = document.createElement('img');
-      img.src = imageData;
-      img.alt = 'Certificat uploadé';
-      slot.classList.add('is-filled');
-      slot.appendChild(img);
-    } else {
+    if (!value) {
       slot.classList.remove('is-filled');
       slot.textContent = 'à uploader';
+      return;
     }
+
+    slot.classList.add('is-filled');
+    const normalized = normalizeDriveLink(value);
+    const img = document.createElement('img');
+    img.src = normalized;
+    img.alt = 'Certificat Google Drive';
+    slot.appendChild(img);
   }
 
   document.querySelectorAll('.cert-card').forEach((card) => {
     const title = card.querySelector('h4')?.textContent || 'certificat';
     const key = `${storagePrefix}${slugify(title)}`;
-    const slot = card.querySelector('.cert-slot');
-
-    const uploadLabel = document.createElement('label');
-    uploadLabel.className = 'cert-upload';
-    uploadLabel.innerHTML = 'Choisir une image <input type="file" accept="image/*">';
 
     const wrapper = document.createElement('div');
-    wrapper.style.display = 'flex';
-    wrapper.style.flexDirection = 'column';
-    wrapper.style.gap = '8px';
-    wrapper.appendChild(uploadLabel);
+    wrapper.className = 'cert-link-box';
+
+    const input = document.createElement('input');
+    input.className = 'cert-link-input';
+    input.type = 'text';
+    input.placeholder = 'Coller un lien Google Drive public';
+
+    const button = document.createElement('button');
+    button.className = 'cert-link-button';
+    button.type = 'button';
+    button.textContent = 'Afficher';
+
+    wrapper.appendChild(input);
+    wrapper.appendChild(button);
     card.insertBefore(wrapper, card.querySelector('.cert-body'));
 
     const stored = localStorage.getItem(key);
     if (stored) {
+      input.value = stored;
       setPreview(card, stored);
     }
 
-    uploadLabel.querySelector('input').addEventListener('change', (event) => {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result;
-        if (typeof result === 'string') {
-          localStorage.setItem(key, result);
-          setPreview(card, result);
-        }
-      };
-      reader.readAsDataURL(file);
+    button.addEventListener('click', () => {
+      const link = input.value;
+      localStorage.setItem(key, link);
+      setPreview(card, link);
     });
   });
 </script>
