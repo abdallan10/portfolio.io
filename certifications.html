@@ -44,6 +44,25 @@
   .cert-slot.is-filled{padding:0; border-style:solid;}
   .cert-slot img{width:100%; height:100%; object-fit:cover; display:block;}
   .cert-link-box{display:flex; flex-direction:column; gap:8px;}
+  .cert-upload-label{
+    width:100%;
+    border:1px solid var(--paper-line);
+    border-radius:5px;
+    padding:8px 10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--copper-dim);
+    background:rgba(201,122,59,0.05);
+    cursor:pointer;
+    text-align:center;
+  }
+  .cert-upload-label:hover{background:rgba(201,122,59,0.08);}
+  .cert-file-input{display:none;}
+  .cert-upload-status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--teal-dim);
+  }
   .cert-link-input{
     width:100%;
     border:1px solid var(--paper-line);
@@ -109,7 +128,7 @@
   <div class="wrap">
     <div class="eyebrow">Certifications</div>
     <h1>Certifications techniques</h1>
-    <p>Cisco, Stormshield, ANSSI. Collez ici un lien Google Drive public pour chaque certificat afin de l’afficher directement.</p>
+    <p>Cisco, Stormshield, ANSSI. Importez directement une image depuis votre ordinateur, ou collez un lien public si vous préférez.</p>
   </div>
 </div>
 
@@ -194,10 +213,10 @@
 
     <div class="howto reveal">
       <b>Comment utiliser les emplacements :</b><br><br>
-      1. Ouvre le certificat dans Google Drive.<br>
-      2. Clique sur <b>Partager</b> puis sur <b>Toute personne disposant du lien</b>.<br>
-      3. Copie le lien de partage et colle-le dans le champ correspondant.<br>
-      4. Cliquez sur <b>Afficher</b> pour l’afficher directement dans la carte.
+      1. Cliquez sur <b>Choisir une image</b> pour importer un certificat depuis votre ordinateur.<br>
+      2. Ou collez un lien public d’image si vous avez déjà une photo hébergée ailleurs.<br>
+      3. Cliquez sur <b>Afficher</b> pour l’afficher directement dans la carte.<br>
+      4. L’image reste enregistrée dans votre navigateur pour cette page.
     </div>
   </div>
 </section>
@@ -233,18 +252,6 @@
       .replace(/(^-|-$)/g, '');
   }
 
-  function normalizeDriveLink(link) {
-    const trimmed = link.trim();
-    if (!trimmed) return '';
-
-    const idMatch = trimmed.match(/\/d\/([a-zA-Z0-9-_]+)/) || trimmed.match(/[?&]id=([a-zA-Z0-9-_]+)/);
-    if (idMatch) {
-      return `https://drive.google.com/uc?export=view&id=${idMatch[1]}`;
-    }
-
-    return trimmed;
-  }
-
   function setPreview(card, value) {
     const slot = card.querySelector('.cert-slot');
     if (!slot) return;
@@ -257,11 +264,19 @@
     }
 
     slot.classList.add('is-filled');
-    const normalized = normalizeDriveLink(value);
     const img = document.createElement('img');
-    img.src = normalized;
-    img.alt = 'Certificat Google Drive';
+    img.src = value;
+    img.alt = 'Certificat';
     slot.appendChild(img);
+  }
+
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(file);
+    });
   }
 
   document.querySelectorAll('.cert-card').forEach((card) => {
@@ -271,30 +286,74 @@
     const wrapper = document.createElement('div');
     wrapper.className = 'cert-link-box';
 
+    const uploadLabel = document.createElement('label');
+    uploadLabel.className = 'cert-upload-label';
+    uploadLabel.textContent = 'Choisir une image';
+
+    const fileInput = document.createElement('input');
+    fileInput.className = 'cert-file-input';
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    uploadLabel.appendChild(fileInput);
+
+    const uploadStatus = document.createElement('div');
+    uploadStatus.className = 'cert-upload-status';
+    uploadStatus.textContent = 'Ou collez un lien public';
+
     const input = document.createElement('input');
     input.className = 'cert-link-input';
     input.type = 'text';
-    input.placeholder = 'Coller un lien Google Drive public';
+    input.placeholder = 'Coller un lien public';
 
     const button = document.createElement('button');
     button.className = 'cert-link-button';
     button.type = 'button';
     button.textContent = 'Afficher';
 
+    wrapper.appendChild(uploadLabel);
+    wrapper.appendChild(uploadStatus);
     wrapper.appendChild(input);
     wrapper.appendChild(button);
     card.insertBefore(wrapper, card.querySelector('.cert-body'));
 
     const stored = localStorage.getItem(key);
     if (stored) {
-      input.value = stored;
-      setPreview(card, stored);
+      if (stored.startsWith('data:image/')) {
+        uploadStatus.textContent = 'Image enregistrée localement';
+        setPreview(card, stored);
+      } else {
+        input.value = stored;
+        setPreview(card, stored);
+      }
     }
 
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files?.[0];
+      if (!file) return;
+
+      uploadStatus.textContent = `Image prête : ${file.name}`;
+      try {
+        const dataUrl = await readFileAsDataUrl(file);
+        localStorage.setItem(key, dataUrl);
+        setPreview(card, dataUrl);
+      } catch (error) {
+        uploadStatus.textContent = 'Impossible de lire le fichier';
+      }
+    });
+
     button.addEventListener('click', () => {
-      const link = input.value;
+      const link = input.value.trim();
+      if (!link) {
+        localStorage.removeItem(key);
+        setPreview(card, '');
+        uploadStatus.textContent = 'Ou collez un lien public';
+        return;
+      }
+
       localStorage.setItem(key, link);
       setPreview(card, link);
+      uploadStatus.textContent = 'Lien enregistré';
     });
   });
 </script>
