@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications — Abdalla NASR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+  @media (max-width:760px){ .cert-grid{grid-template-columns:1fr;} }
+
+  .cert-card{
+    background:var(--paper-card);
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .cert-embed-wrap{
+    position:relative;
+    width:100%;
+    background:#101317;
+    aspect-ratio:4/3;
+  }
+  .cert-embed-wrap iframe{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .cert-embed-fallback{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:8px;
+    color:#5A6178;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-align:center;
+    padding:16px;
+    pointer-events:none;
+  }
+  .cert-body{padding:18px 20px 20px;}
+  .cert-body h4{font-size:15px; font-weight:600;}
+  .cert-issuer{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-on-paper-muted); margin-top:4px;}
+  .cert-actions{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap;}
+  .cert-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--copper-dim);
+    border:1px solid var(--paper-line);
+    padding:7px 12px;
+    border-radius:4px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .cert-link:hover{border-color:var(--copper); background:rgba(201,122,59,0.06);}
+
+  .howto{
+    background:var(--ink-panel);
+    color:var(--text-on-ink-muted);
+    border:1px solid var(--ink-line);
+    border-radius:6px;
+    padding:22px 24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    line-height:1.9;
+    margin-top:40px;
+  }
+  .howto b{color:var(--text-on-ink);}
+  .howto .warn{color:var(--copper); display:block; margin-top:12px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="logo-mark">AN</span>
+      <span>
+        <span class="brand-name">Abdalla NASR</span><br>
+        <span class="brand-role">Réseau &amp; sécurité</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="experience.html">Expérience</a></li>
+      <li><a href="projet.html">Projet</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="certifications.html" class="active">Certifications</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Certifications</div>
+    <h1>Certifications techniques</h1>
+    <p>Cisco, Stormshield, ANSSI. Aperçu intégré via Google Drive — un lien "Ouvrir dans Drive" est fourni sous chaque certificat au cas où l'aperçu ne charge pas (Safari mobile bloque parfois ces iframes).</p>
+  </div>
+</div>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="cert-grid reveal">
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA1/preview" allow="autoplay" loading="lazy" title="Certification CCNA1"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>CCNA 1 — Introduction to Networks</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA1/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA2/preview" allow="autoplay" loading="lazy" title="Certification CCNA2"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>CCNA 2 — Switching, Routing and Wireless Essentials</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA2/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA3/preview" allow="autoplay" loading="lazy" title="Certification CCNA3"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>CCNA 3 — Enterprise Networking, Security and Automation</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_CCNA3/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_STORMSHIELD/preview" allow="autoplay" loading="lazy" title="Certification Stormshield Network Administrator"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>Stormshield Network Administrator</h4>
+          <div class="cert-issuer">Stormshield</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_STORMSHIELD/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_ANSSI/preview" allow="autoplay" loading="lazy" title="MOOC Cybersécurité ANSSI"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>MOOC Cybersécurité</h4>
+          <div class="cert-issuer">ANSSI</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_ANSSI/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_INTRO_CYBER/preview" allow="autoplay" loading="lazy" title="Introduction to Cybersecurity"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>Introduction to Cybersecurity</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_INTRO_CYBER/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_CYBER_ESSENTIALS/preview" allow="autoplay" loading="lazy" title="Cybersecurity Essentials"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>Cybersecurity Essentials</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_CYBER_ESSENTIALS/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_ESSENTIEL_RESEAU/preview" allow="autoplay" loading="lazy" title="L'essentiel du réseau"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>L'essentiel du réseau</h4>
+          <div class="cert-issuer">Formation réseau</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_ESSENTIEL_RESEAU/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-embed-wrap">
+          <div class="cert-embed-fallback">chargement de l'aperçu…<br>si rien ne s'affiche, utilise le lien ci-dessous</div>
+          <iframe src="https://drive.google.com/file/d/REMPLACE_PAR_ID_PCAP/preview" allow="autoplay" loading="lazy" title="PCAP Python"></iframe>
+        </div>
+        <div class="cert-body">
+          <h4>PCAP — Certified Associate in Python Programming</h4>
+          <div class="cert-issuer">Python Institute</div>
+          <div class="cert-actions">
+            <a class="cert-link" href="https://drive.google.com/file/d/REMPLACE_PAR_ID_PCAP/view" target="_blank" rel="noopener">Ouvrir dans Drive</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="howto reveal">
+      <b>Comment brancher tes vrais certificats :</b><br>
+      1. Sur Google Drive, mets chaque PDF en partage <b>"Toute personne disposant du lien" → Lecteur</b>. Sans ça, l'iframe affichera une erreur d'accès à la place du certificat.<br>
+      2. Ouvre le fichier, copie l'ID dans l'URL de partage : <b>drive.google.com/file/d/</b><span style="color:#C97A3B">ID_ICI</span><b>/view</b>.<br>
+      3. Remplace chaque <b>REMPLACE_PAR_ID_XXX</b> dans le fichier certifications.html par cet ID exact, à deux endroits (le src de l'iframe en /preview, et le href du lien en /view).<br>
+      4. Teste chaque carte sur mobile après publication — c'est là que les iframes Drive posent le plus de problèmes.<br>
+      <span class="warn">⚠ Même bien configuré, un embed Drive peut mettre 1 à 2 secondes à charger ou rester bloqué selon le navigateur du visiteur. Le lien "Ouvrir dans Drive" reste le seul moyen garanti d'accès si l'aperçu ne s'affiche pas.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sec-tag" style="background:rgba(201,122,59,0.12); color:#C97A3B;">contact</div>
+    <h2 style="margin-top:14px;">Parlons de votre prochaine alternance.</h2>
+    <p class="lede">Disponible pour un rythme 3 semaines entreprise / 1 semaine école à partir de septembre 2026.</p>
+    <div class="contact-row">
+      <a class="contact-pill" href="mailto:abdallahnasr162@gmail.com">abdallahnasr162@gmail.com</a>
+      <a class="contact-pill" href="tel:0660326772">06 60 32 67 72</a>
+      <a class="contact-pill" href="https://www.linkedin.com/in/abdallah-nasr-a91b28177" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="contact-pill" href="https://github.com/abdallan10" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Abdalla NASR — Paris, France</span>
+      <span><a href="contact.html">Page contact complète →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+</body>
+</html>
