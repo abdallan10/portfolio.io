@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projet ToolboxV8 — Abdalla NASR</title>
+<title>Projet Syslog — Abdalla NASR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -34,9 +34,9 @@
 
 <div class="page-head">
   <div class="wrap">
-    <div class="eyebrow">Projet de fin d'année — Mastère Cybersécurité 2025/2026</div>
-    <h1>ToolboxV8</h1>
-    <p>Plateforme web qui automatise les cinq phases d'un test d'intrusion et génère un rapport PDF prêt à livrer au client. Travail de groupe, rôle : intégration des outils offensifs et QA.</p>
+    <div class="eyebrow">Projet de laboratoire — cybersécurité réseau</div>
+    <h1>Syslog &amp; centralisation des logs</h1>
+    <p>Ce projet met en avant la mise en place d’un serveur Syslog pour recevoir, valider et exploiter les événements réseau provenant d’un pare-feu FortiGate et d’autres équipements du laboratoire.</p>
   </div>
 </div>
 
@@ -46,121 +46,82 @@
     <div class="project reveal">
       <div class="project-head">
         <div>
-          <h3>Toolbox automatisée de tests d'intrusion</h3>
-          <div class="role">Rôle dans l'équipe : intégration des outils offensifs &amp; QA</div>
+          <h3>Projet Syslog — réception et vérification des logs réseau</h3>
+          <div class="role">Objectif : centraliser les traces réseau et faciliter la supervision</div>
         </div>
-        <a class="repo-link" href="https://github.com/Vyuob/toolbox-m1" target="_blank" rel="noopener">→ github.com/Vyuob/toolbox-m1</a>
+        <span class="repo-link" style="cursor:default;">Projet personnel / laboratoire</span>
       </div>
-      <p class="desc">L'ergonomie est pensée pour un analyste, pas pour un développeur : un formulaire, un choix de profil, un clic. Chaque outil expose des profils par chips (Quick / Standard / Full…) qui mappent vers la vraie ligne de commande, et la sortie CLI brute est rendue telle quelle dans le rapport PDF final.</p>
+      <p class="desc">L’objectif était de construire une base de supervision fiable en configurant un serveur Rsyslog capable de recevoir les logs envoyés par un équipement FortiGate via le port 514. Le projet couvre la topologie, la configuration du serveur, la vérification de la réception et le contrôle du flux des événements.</p>
 
-      <div class="phases">
-        <div class="phase">
-          <div class="n">01 — Offensif (OSINT)</div>
-          <h5>Recon passive</h5>
-          <p>24 templates de dorks Google / Bing / DuckDuckGo, en 3 catégories : mot-clé, réseaux sociaux, domaine.</p>
+      <div class="project-summary">
+        <div class="project-highlight">
+          <h4>Problématique</h4>
+          <p>Centraliser les logs réseau pour améliorer la traçabilité, la détection des incidents et l’audit des actions réalisées sur le périmètre.</p>
         </div>
-        <div class="phase">
-          <div class="n">02 — Offensif</div>
-          <h5>Recon active</h5>
-          <p>Nmap, résolution DNS, whois, WhatWeb.</p>
+        <div class="project-highlight">
+          <h4>Résultat attendu</h4>
+          <p>Recevoir et exploiter correctement les événements Syslog afin de pouvoir vérifier l’état de la communication réseau et la conformité du flux.</p>
         </div>
-        <div class="phase">
-          <div class="n">03 — Offensif</div>
-          <h5>Scan vulnérabilités</h5>
-          <p>Nmap NSE (--script=vuln), Nikto, SSLyze avec pré-check TCP IPv4/IPv6.</p>
+        <div class="project-highlight">
+          <h4>Enjeux</h4>
+          <p>Assurer une supervision fiable, détecter rapidement les anomalies et conserver une trace exploitable pour l’analyse.</p>
         </div>
-        <div class="phase">
-          <div class="n">04 — Offensif</div>
-          <h5>Exploitation</h5>
-          <p>SQLmap, Hydra, John the Ripper jumbo (304 formats), Metasploit.</p>
+      </div>
+
+      <div class="project-summary">
+        <div class="project-highlight">
+          <h4>Étapes réalisées</h4>
+          <ul>
+            <li>Mise en place d’une topologie de laboratoire réseau</li>
+            <li>Configuration du serveur Rsyslog pour l’écoute et le traitement des logs</li>
+            <li>Envoi des logs depuis FortiGate vers le serveur Syslog</li>
+            <li>Vérification de la réception des évènements et du port 514</li>
+          </ul>
         </div>
-        <div class="phase">
-          <div class="n">05 — Offensif</div>
-          <h5>Web &amp; API</h5>
-          <p>OWASP ZAP (spider + active, polling auto), Gobuster, Dependency-Check.</p>
+        <div class="project-highlight">
+          <h4>Compétences mises en œuvre</h4>
+          <ul>
+            <li>Configuration réseau et services Syslog</li>
+            <li>Analyse de logs et vérification de flux</li>
+            <li>Diagnostic réseau et contrôle de port</li>
+            <li>Supervision et traçabilité des événements</li>
+          </ul>
         </div>
+        <div class="project-highlight">
+          <h4>Outils utilisés</h4>
+          <p>Rsyslog, FortiGate, Linux, vérification réseau, analyse de logs et contrôle du port 514.</p>
+        </div>
+      </div>
+
+      <div class="project-photo-grid">
+        <figure class="project-photo-card">
+          <img src="topologie-corelia.png" alt="Topologie du laboratoire Syslog">
+          <figcaption class="project-caption">Topologie du laboratoire</figcaption>
+        </figure>
+        <figure class="project-photo-card">
+          <img src="config-rsyslog.png" alt="Configuration du serveur Rsyslog">
+          <figcaption class="project-caption">Configuration du serveur Rsyslog</figcaption>
+        </figure>
+      </div>
+
+      <div class="project-photo-grid">
+        <figure class="project-photo-card">
+          <img src="verif-logs-fortigate.png" alt="Vérification des logs FortiGate">
+          <figcaption class="project-caption">Vérification des logs FortiGate</figcaption>
+        </figure>
+        <figure class="project-photo-card">
+          <img src="verif-port-514.png" alt="Contrôle du port 514">
+          <figcaption class="project-caption">Contrôle du port 514</figcaption>
+        </figure>
       </div>
 
       <div class="stack-row">
-        <span class="stack-pill">FastAPI</span>
-        <span class="stack-pill">Celery</span>
-        <span class="stack-pill">Kali Rolling</span>
-        <span class="stack-pill">PostgreSQL</span>
-        <span class="stack-pill">Redis</span>
-        <span class="stack-pill">Elasticsearch / Logstash / Kibana</span>
-        <span class="stack-pill">MinIO (S3)</span>
-        <span class="stack-pill">Caddy (HTTPS)</span>
-        <span class="stack-pill">OWASP ZAP</span>
-        <span class="stack-pill">RBAC 3 rôles</span>
-        <span class="stack-pill">CI/CD GitHub Actions + GitLab CI</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <div class="sec-tag">architecture</div>
-        <h2 style="margin-top:10px;">Une stack dockerisée, 3 services applicatifs</h2>
-        <div class="sec-sub">Reverse proxy HTTPS, app web séparée de l'API REST, worker Celery exécutant les outils sur une image Kali, infra complète pour le SIEM et le stockage des rapports.</div>
-      </div>
-    </div>
-
-    <div class="project reveal">
-      <table class="role-table">
-        <tr><th>Service</th><th>Rôle</th></tr>
-        <tr><td>caddy</td><td class="muted">Reverse proxy HTTPS, certificat auto-signé via CA interne (Let's Encrypt en prod en 1 ligne)</td></tr>
-        <tr><td>web (FastAPI, :3000)</td><td class="muted">Sert les pages HTML, auth par formulaire + cookie HttpOnly, proxifie /api/*</td></tr>
-        <tr><td>api (FastAPI, :8000)</td><td class="muted">Endpoints REST purs, accessibles pour intégrations externes (Swagger inclus)</td></tr>
-        <tr><td>worker (Celery + Kali)</td><td class="muted">Exécute les scans offensifs avec tous les outils préinstallés</td></tr>
-        <tr><td>db / redis / minio</td><td class="muted">PostgreSQL 16, file d'attente, stockage S3 des rapports PDF</td></tr>
-        <tr><td>elasticsearch + logstash + kibana</td><td class="muted">Backend SIEM, visualisation des logs collectés</td></tr>
-        <tr><td>zap</td><td class="muted">OWASP ZAP en daemon, API REST :8080, polling automatique par le module web_scan</td></tr>
-        <tr><td>target</td><td class="muted">Cible vulnérable (SSH faible) réutilisable pour les démos Hydra</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div>
-        <div class="sec-tag">sécurité &amp; reporting</div>
-        <h2 style="margin-top:10px;">Pensé pour être livré, pas juste démontré</h2>
-      </div>
-    </div>
-
-    <div class="exp-grid reveal">
-      <div class="case">
-        <h4>Sécurité applicative</h4>
-        <ul>
-          <li>RBAC à 3 rôles (admin, analyst, reader), création auto des comptes au premier démarrage</li>
-          <li>Page de gestion des utilisateurs réservée à l'admin (créer, modifier le rôle, désactiver)</li>
-          <li>Chiffrement Fernet pour les secrets stockés</li>
-          <li>Audit logs append-only en base : login, lancement de scan, génération de rapport, blocage IP</li>
-        </ul>
-      </div>
-      <div class="case">
-        <h4>Reporting</h4>
-        <ul>
-          <li>Rapport PDF généré avec ReportLab : charte pro, header bleu, encart synthèse, sortie CLI brute préservée par outil</li>
-          <li>Vue HTML alignée sur le PDF pour la cohérence consultation/téléchargement</li>
-          <li>SIEM consultable depuis la page /siem (Chart.js) en plus de Kibana</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-grid reveal" style="margin-top:10px;">
-      <div class="case">
-        <h4>Mon rôle : intégration offensive</h4>
-        <p>Intégration des modules offensifs dans la plateforme : câblage des outils (Nmap, Nikto, SQLmap, Hydra, John, ZAP, Gobuster…) aux profils par chips, gestion des timeouts adaptés par profil, validation des sorties CLI avant rendu dans le rapport.</p>
-      </div>
-      <div class="case">
-        <h4>Mon rôle : QA</h4>
-        <p>Tests fonctionnels sur les modules avant intégration au pipeline CI (lint ruff → pytest avec services PostgreSQL/Redis → build des images Docker), vérification de la cohérence des rapports générés et des cas limites (cibles sans TLS, timeouts dépassés).</p>
+        <span class="stack-pill">Rsyslog</span>
+        <span class="stack-pill">FortiGate</span>
+        <span class="stack-pill">Linux</span>
+        <span class="stack-pill">Syslog</span>
+        <span class="stack-pill">Sécurité réseau</span>
+        <span class="stack-pill">Supervision</span>
       </div>
     </div>
   </div>
