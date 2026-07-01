@@ -241,7 +241,7 @@ header.hero{
 .stage-card p{font-size:13px; color:var(--text-on-paper-muted); margin-top:10px;}
 
 /* ---------- project ---------- */
-.project{background:var(--ink); color:var(--text-on-ink); border-radius:8px; padding:38px; position:relative; overflow:hidden;}
+.project{background:var(--ink); color:var(--text-on-ink); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:38px; position:relative; overflow:hidden; box-shadow:0 20px 45px -24px rgba(0,0,0,0.55);} 
 .project::before{content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 100% 0%, rgba(62,143,143,0.16), transparent 55%); pointer-events:none;}
 .project-head{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; position:relative;}
 .project h3{font-size:1.5rem;}
