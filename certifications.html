@@ -41,22 +41,21 @@
     padding:16px;
     overflow:hidden;
   }
-  .cert-slot.is-filled{padding:0; border-style:solid;}
+  .cert-slot.is-filled{padding:0; border-style:solid; background:#fff;}
   .cert-slot img{width:100%; height:100%; object-fit:cover; display:block;}
   .cert-link-box{display:flex; flex-direction:column; gap:8px;}
-  .cert-upload-label{
+  .cert-add-button{
     width:100%;
-    border:1px solid var(--paper-line);
+    border:none;
     border-radius:5px;
-    padding:8px 10px;
+    padding:9px 10px;
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
-    color:var(--copper-dim);
-    background:rgba(201,122,59,0.05);
+    color:#fff;
+    background:var(--copper);
     cursor:pointer;
-    text-align:center;
   }
-  .cert-upload-label:hover{background:rgba(201,122,59,0.08);}
+  .cert-add-button:hover{background:#D9863F;}
   .cert-file-input{display:none;}
   .cert-upload-status{
     font-family:'IBM Plex Mono', monospace;
@@ -80,8 +79,8 @@
     padding:8px 10px;
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
-    color:var(--copper-dim);
-    background:rgba(201,122,59,0.05);
+    color:var(--teal-dim);
+    background:rgba(62,143,143,0.08);
     cursor:pointer;
   }
   .cert-body h4{font-size:15px; font-weight:600;}
@@ -128,7 +127,7 @@
   <div class="wrap">
     <div class="eyebrow">Certifications</div>
     <h1>Certifications techniques</h1>
-    <p>Cisco, Stormshield, ANSSI. Importez directement une image depuis votre ordinateur, ou collez un lien public si vous préférez.</p>
+    <p>Cisco, Stormshield, ANSSI. Ajoutez une image en un clic, ou collez un lien public si vous préférez.</p>
   </div>
 </div>
 
@@ -138,7 +137,7 @@
     <div class="cert-grid reveal">
 
       <div class="cert-card">
-        <div class="cert-slot">certificat à venir</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>CCNA 1 — Introduction to Networks</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -146,7 +145,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>CCNA 2 — Switching, Routing and Wireless Essentials</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -154,7 +153,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>CCNA 3 — Enterprise Networking, Security and Automation</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -162,7 +161,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>Stormshield Network Administrator</h4>
           <div class="cert-issuer">Stormshield</div>
@@ -170,7 +169,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>MOOC Cybersécurité</h4>
           <div class="cert-issuer">ANSSI</div>
@@ -178,7 +177,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>Introduction to Cybersecurity</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -186,7 +185,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>Cybersecurity Essentials</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -194,7 +193,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>L'essentiel du réseau</h4>
           <div class="cert-issuer">Formation réseau</div>
@@ -202,7 +201,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">à uploader</div>
+        <div class="cert-slot">Aucune image</div>
         <div class="cert-body">
           <h4>PCAP — Certified Associate in Python Programming</h4>
           <div class="cert-issuer">Python Institute</div>
@@ -213,9 +212,9 @@
 
     <div class="howto reveal">
       <b>Comment utiliser les emplacements :</b><br><br>
-      1. Cliquez sur <b>Choisir une image</b> pour importer un certificat depuis votre ordinateur.<br>
+      1. Cliquez sur <b>Ajouter une image</b> pour importer un certificat depuis votre ordinateur.<br>
       2. Ou collez un lien public d’image si vous avez déjà une photo hébergée ailleurs.<br>
-      3. Cliquez sur <b>Afficher</b> pour l’afficher directement dans la carte.<br>
+      3. Cliquez sur <b>Valider le lien</b> pour l’afficher directement dans la carte.<br>
       4. L’image reste enregistrée dans votre navigateur pour cette page.
     </div>
   </div>
@@ -259,7 +258,7 @@
     slot.innerHTML = '';
     if (!value) {
       slot.classList.remove('is-filled');
-      slot.textContent = 'à uploader';
+      slot.textContent = 'Aucune image';
       return;
     }
 
@@ -286,16 +285,17 @@
     const wrapper = document.createElement('div');
     wrapper.className = 'cert-link-box';
 
-    const uploadLabel = document.createElement('label');
-    uploadLabel.className = 'cert-upload-label';
-    uploadLabel.textContent = 'Choisir une image';
+    const button = document.createElement('button');
+    button.className = 'cert-add-button';
+    button.type = 'button';
+    button.textContent = 'Ajouter une image';
 
     const fileInput = document.createElement('input');
     fileInput.className = 'cert-file-input';
     fileInput.type = 'file';
     fileInput.accept = 'image/*';
 
-    uploadLabel.appendChild(fileInput);
+    button.appendChild(fileInput);
 
     const uploadStatus = document.createElement('div');
     uploadStatus.className = 'cert-upload-status';
@@ -306,15 +306,15 @@
     input.type = 'text';
     input.placeholder = 'Coller un lien public';
 
-    const button = document.createElement('button');
-    button.className = 'cert-link-button';
-    button.type = 'button';
-    button.textContent = 'Afficher';
+    const linkButton = document.createElement('button');
+    linkButton.className = 'cert-link-button';
+    linkButton.type = 'button';
+    linkButton.textContent = 'Valider le lien';
 
-    wrapper.appendChild(uploadLabel);
+    wrapper.appendChild(button);
     wrapper.appendChild(uploadStatus);
     wrapper.appendChild(input);
-    wrapper.appendChild(button);
+    wrapper.appendChild(linkButton);
     card.insertBefore(wrapper, card.querySelector('.cert-body'));
 
     const stored = localStorage.getItem(key);
@@ -327,6 +327,10 @@
         setPreview(card, stored);
       }
     }
+
+    button.addEventListener('click', () => {
+      fileInput.click();
+    });
 
     fileInput.addEventListener('change', async () => {
       const file = fileInput.files?.[0];
@@ -342,7 +346,7 @@
       }
     });
 
-    button.addEventListener('click', () => {
+    linkButton.addEventListener('click', () => {
       const link = input.value.trim();
       if (!link) {
         localStorage.removeItem(key);
