@@ -18,7 +18,7 @@
 
   .cert-card{
     background:var(--paper-card);
-    border:1px dashed var(--paper-line);
+    border:1px solid var(--paper-line);
     border-radius:6px;
     padding:22px;
     display:flex;
@@ -41,48 +41,7 @@
     padding:16px;
     overflow:hidden;
   }
-  .cert-slot.is-filled{padding:0; border-style:solid; background:#fff;}
-  .cert-slot img{width:100%; height:100%; object-fit:cover; display:block;}
-  .cert-link-box{display:flex; flex-direction:column; gap:8px;}
-  .cert-add-button{
-    width:100%;
-    border:none;
-    border-radius:5px;
-    padding:9px 10px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:#fff;
-    background:var(--copper);
-    cursor:pointer;
-  }
-  .cert-add-button:hover{background:#D9863F;}
-  .cert-file-input{display:none;}
-  .cert-upload-status{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    color:var(--teal-dim);
-  }
-  .cert-link-input{
-    width:100%;
-    border:1px solid var(--paper-line);
-    border-radius:5px;
-    padding:8px 10px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--text-on-paper);
-    background:#fff;
-  }
-  .cert-link-button{
-    width:100%;
-    border:1px solid var(--paper-line);
-    border-radius:5px;
-    padding:8px 10px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--teal-dim);
-    background:rgba(62,143,143,0.08);
-    cursor:pointer;
-  }
+  .cert-slot img{width:100%; height:100%; object-fit:cover; display:block; border-radius:5px;}
   .cert-body h4{font-size:15px; font-weight:600;}
   .cert-issuer{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-on-paper-muted); margin-top:4px;}
 
@@ -98,6 +57,7 @@
     margin-top:40px;
   }
   .howto b{color:var(--text-on-ink);}
+  .howto .warn{color:var(--copper); display:block; margin-top:12px;}
 </style>
 </head>
 <body>
@@ -127,7 +87,7 @@
   <div class="wrap">
     <div class="eyebrow">Certifications</div>
     <h1>Certifications techniques</h1>
-    <p>Cisco, Stormshield, ANSSI. Ajoutez une image en un clic, ou collez un lien public si vous préférez.</p>
+    <p>Cisco, Stormshield, ANSSI. Images statiques hébergées dans le repo — visibles par n'importe quel visiteur, sans dépendre de ton navigateur.</p>
   </div>
 </div>
 
@@ -137,7 +97,7 @@
     <div class="cert-grid reveal">
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna1.jpg</code></div>
         <div class="cert-body">
           <h4>CCNA 1 — Introduction to Networks</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -145,7 +105,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna2.jpg</code></div>
         <div class="cert-body">
           <h4>CCNA 2 — Switching, Routing and Wireless Essentials</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -153,7 +113,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna3.jpg</code></div>
         <div class="cert-body">
           <h4>CCNA 3 — Enterprise Networking, Security and Automation</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -161,7 +121,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/stormshield-sna.jpg</code></div>
         <div class="cert-body">
           <h4>Stormshield Network Administrator</h4>
           <div class="cert-issuer">Stormshield</div>
@@ -169,7 +129,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/mooc-anssi.jpg</code></div>
         <div class="cert-body">
           <h4>MOOC Cybersécurité</h4>
           <div class="cert-issuer">ANSSI</div>
@@ -177,7 +137,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/intro-cybersecurity.jpg</code></div>
         <div class="cert-body">
           <h4>Introduction to Cybersecurity</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -185,7 +145,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/cybersecurity-essentials.jpg</code></div>
         <div class="cert-body">
           <h4>Cybersecurity Essentials</h4>
           <div class="cert-issuer">Cisco Networking Academy</div>
@@ -193,7 +153,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/essentiel-reseau.jpg</code></div>
         <div class="cert-body">
           <h4>L'essentiel du réseau</h4>
           <div class="cert-issuer">Formation réseau</div>
@@ -201,7 +161,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-slot">Aucune image</div>
+        <div class="cert-slot">Aucune image — dépose <code>certs/pcap-python.jpg</code></div>
         <div class="cert-body">
           <h4>PCAP — Certified Associate in Python Programming</h4>
           <div class="cert-issuer">Python Institute</div>
@@ -211,11 +171,13 @@
     </div>
 
     <div class="howto reveal">
-      <b>Comment utiliser les emplacements :</b><br><br>
-      1. Cliquez sur <b>Ajouter une image</b> pour importer un certificat depuis votre ordinateur.<br>
-      2. Ou collez un lien public d’image si vous avez déjà une photo hébergée ailleurs.<br>
-      3. Cliquez sur <b>Valider le lien</b> pour l’afficher directement dans la carte.<br>
-      4. L’image reste enregistrée dans votre navigateur pour cette page.
+      <b>Pourquoi le système précédent (upload + localStorage) a été retiré :</b><br>
+      Les images uploadées via ce système n'étaient enregistrées que dans TON navigateur. Un visiteur externe — un recruteur — ouvrant cette page depuis son propre ordinateur voyait toujours "Aucune image", quoi que tu aies uploadé de ton côté. Ce n'était pas un bug mineur, la page ne pouvait structurellement pas remplir son rôle.<br><br>
+      <b>Comment remplir chaque emplacement, méthode qui fonctionne réellement :</b><br>
+      1. Dans le repo GitHub, crée un dossier <b>certs/</b> à la racine (à côté de index.html) s'il n'existe pas déjà.<br>
+      2. Dépose chaque certificat en image (JPG/PNG) avec le nom exact indiqué sous chaque emplacement ci-dessus.<br>
+      3. GitHub Pages sert le fichier automatiquement — aucune modification de code nécessaire, aucun risque de casser un lien.<br>
+      <span class="warn">⚠ Tant qu'un fichier n'est pas déposé, l'encadré en pointillé reste affiché tel quel — c'est voulu, ça ne casse rien visuellement, contrairement à un lien mort ou une iframe vide.</span>
     </div>
   </div>
 </section>
@@ -240,126 +202,5 @@
 </footer>
 
 <script src="common.js"></script>
-<script>
-  const storagePrefix = 'portfolio-cert-link-';
-
-  function slugify(value) {
-    return value
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-  }
-
-  function setPreview(card, value) {
-    const slot = card.querySelector('.cert-slot');
-    if (!slot) return;
-
-    slot.innerHTML = '';
-    if (!value) {
-      slot.classList.remove('is-filled');
-      slot.textContent = 'Aucune image';
-      return;
-    }
-
-    slot.classList.add('is-filled');
-    const img = document.createElement('img');
-    img.src = value;
-    img.alt = 'Certificat';
-    slot.appendChild(img);
-  }
-
-  function readFileAsDataUrl(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = () => reject(reader.error);
-      reader.readAsDataURL(file);
-    });
-  }
-
-  document.querySelectorAll('.cert-card').forEach((card) => {
-    const title = card.querySelector('h4')?.textContent || 'certificat';
-    const key = `${storagePrefix}${slugify(title)}`;
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'cert-link-box';
-
-    const button = document.createElement('button');
-    button.className = 'cert-add-button';
-    button.type = 'button';
-    button.textContent = 'Ajouter une image';
-
-    const fileInput = document.createElement('input');
-    fileInput.className = 'cert-file-input';
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*';
-
-    button.appendChild(fileInput);
-
-    const uploadStatus = document.createElement('div');
-    uploadStatus.className = 'cert-upload-status';
-    uploadStatus.textContent = 'Ou collez un lien public';
-
-    const input = document.createElement('input');
-    input.className = 'cert-link-input';
-    input.type = 'text';
-    input.placeholder = 'Coller un lien public';
-
-    const linkButton = document.createElement('button');
-    linkButton.className = 'cert-link-button';
-    linkButton.type = 'button';
-    linkButton.textContent = 'Valider le lien';
-
-    wrapper.appendChild(button);
-    wrapper.appendChild(uploadStatus);
-    wrapper.appendChild(input);
-    wrapper.appendChild(linkButton);
-    card.insertBefore(wrapper, card.querySelector('.cert-body'));
-
-    const stored = localStorage.getItem(key);
-    if (stored) {
-      if (stored.startsWith('data:image/')) {
-        uploadStatus.textContent = 'Image enregistrée localement';
-        setPreview(card, stored);
-      } else {
-        input.value = stored;
-        setPreview(card, stored);
-      }
-    }
-
-    button.addEventListener('click', () => {
-      fileInput.click();
-    });
-
-    fileInput.addEventListener('change', async () => {
-      const file = fileInput.files?.[0];
-      if (!file) return;
-
-      uploadStatus.textContent = `Image prête : ${file.name}`;
-      try {
-        const dataUrl = await readFileAsDataUrl(file);
-        localStorage.setItem(key, dataUrl);
-        setPreview(card, dataUrl);
-      } catch (error) {
-        uploadStatus.textContent = 'Impossible de lire le fichier';
-      }
-    });
-
-    linkButton.addEventListener('click', () => {
-      const link = input.value.trim();
-      if (!link) {
-        localStorage.removeItem(key);
-        setPreview(card, '');
-        uploadStatus.textContent = 'Ou collez un lien public';
-        return;
-      }
-
-      localStorage.setItem(key, link);
-      setPreview(card, link);
-      uploadStatus.textContent = 'Lien enregistré';
-    });
-  });
-</script>
 </body>
 </html>

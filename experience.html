@@ -111,6 +111,11 @@
         <div class="diagram-cap">Schéma simplifié, anonymisé — segmentation appliquée pour le client AllianceHealthcare</div>
       </div>
 
+      <details style="margin-top:20px;">
+        <summary style="cursor:pointer; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal-dim); padding:8px 0;">→ voir la topologie réseau complète de CORELIA</summary>
+        <img src="assets/topologie-corelia.png" alt="Topologie réseau simplifiée de CORELIA : deux pare-feu Fortinet en haute disponibilité actif/passif, connectés à deux switches Aruba CX redondants, chacun relié à un serveur AD et un serveur NAS" style="width:100%; max-width:480px; margin:14px auto 0; border-radius:6px; border:1px solid var(--paper-line); display:block; background:#fff;">
+      </details>
+
     </div>
 
     <div class="exp-card reveal">
@@ -131,6 +136,23 @@
         </div>
       </div>
 
+      <details style="margin-top:18px;">
+        <summary style="cursor:pointer; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal-dim); padding:8px 0;">→ voir les captures de configuration (CLI FortiGate, Rsyslog, vérification du port)</summary>
+        <div style="display:flex; flex-direction:column; gap:16px; margin-top:14px; max-width:420px;">
+          <figure style="margin:0;">
+            <img src="assets/verif-logs-fortigate.png" alt="Vérification de la configuration syslogd sur le FortiGate via CLI : status enable, serveur, mode udp, port 514" style="width:100%; border-radius:6px; border:1px solid var(--paper-line); display:block;">
+            <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--text-on-paper-muted); margin-top:6px;">CLI FortiGate — <code>get log syslogd setting</code></figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img src="assets/config-rsyslog.png" alt="Configuration de Rsyslog : modules imudp et imtcp activés sur le port 514" style="width:100%; border-radius:6px; border:1px solid var(--paper-line); display:block;">
+            <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--text-on-paper-muted); margin-top:6px;">rsyslog.conf — réception UDP/TCP activée</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img src="assets/verif-port-514.png" alt="Vérification que le port 514 est bien en écoute côté Kali via netstat -tulnp" style="width:100%; border-radius:6px; border:1px solid var(--paper-line); display:block;">
+            <figcaption style="font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--text-on-paper-muted); margin-top:6px;"><code>netstat -tulnp | grep 514</code> — port confirmé en écoute</figcaption>
+          </figure>
+        </div>
+      </details>
 
       <div class="case" style="margin-top:26px; border-left:2px solid var(--copper);">
         <h4 style="color:var(--copper-dim);">Dépannage &amp; vérification</h4>
