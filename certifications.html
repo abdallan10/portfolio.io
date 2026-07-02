@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications — Abdalla NASR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+  @media (max-width:760px){ .cert-grid{grid-template-columns:1fr;} }
+
+  .cert-card{
+    background:var(--paper-card);
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .cert-slot{
+    width:100%;
+    aspect-ratio:4/3;
+    border:1px dashed var(--paper-line);
+    border-radius:5px;
+    background:#F8F8FA;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--text-on-paper-muted);
+    text-align:center;
+    padding:16px;
+    overflow:hidden;
+  }
+  .cert-slot img{width:100%; height:100%; object-fit:cover; display:block; border-radius:5px;}
+  .cert-body h4{font-size:15px; font-weight:600;}
+  .cert-issuer{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-on-paper-muted); margin-top:4px;}
+
+  .howto{
+    background:var(--ink-panel);
+    color:var(--text-on-ink-muted);
+    border:1px solid var(--ink-line);
+    border-radius:6px;
+    padding:22px 24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    line-height:1.9;
+    margin-top:40px;
+  }
+  .howto b{color:var(--text-on-ink);}
+  .howto .warn{color:var(--copper); display:block; margin-top:12px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="logo-mark">AN</span>
+      <span>
+        <span class="brand-name">Abdalla NASR</span><br>
+        <span class="brand-role">Réseau &amp; sécurité</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="experience.html">Expérience</a></li>
+      <li><a href="projet.html">Projet</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="certifications.html" class="active">Certifications</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Certifications</div>
+    <h1>Certifications techniques</h1>
+    <p>Cisco, Stormshield, ANSSI. Images statiques hébergées dans le repo — visibles par n'importe quel visiteur, sans dépendre de ton navigateur.</p>
+  </div>
+</div>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="cert-grid reveal">
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna1.jpg</code></div>
+        <div class="cert-body">
+          <h4>CCNA 1 — Introduction to Networks</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna2.jpg</code></div>
+        <div class="cert-body">
+          <h4>CCNA 2 — Switching, Routing and Wireless Essentials</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/ccna3.jpg</code></div>
+        <div class="cert-body">
+          <h4>CCNA 3 — Enterprise Networking, Security and Automation</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/stormshield-sna.jpg</code></div>
+        <div class="cert-body">
+          <h4>Stormshield Network Administrator</h4>
+          <div class="cert-issuer">Stormshield</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/mooc-anssi.jpg</code></div>
+        <div class="cert-body">
+          <h4>MOOC Cybersécurité</h4>
+          <div class="cert-issuer">ANSSI</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/intro-cybersecurity.jpg</code></div>
+        <div class="cert-body">
+          <h4>Introduction to Cybersecurity</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/cybersecurity-essentials.jpg</code></div>
+        <div class="cert-body">
+          <h4>Cybersecurity Essentials</h4>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/essentiel-reseau.jpg</code></div>
+        <div class="cert-body">
+          <h4>L'essentiel du réseau</h4>
+          <div class="cert-issuer">Formation réseau</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-slot">Aucune image — dépose <code>certs/pcap-python.jpg</code></div>
+        <div class="cert-body">
+          <h4>PCAP — Certified Associate in Python Programming</h4>
+          <div class="cert-issuer">Python Institute</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="howto reveal">
+      <b>Pourquoi le système précédent (upload + localStorage) a été retiré :</b><br>
+      Les images uploadées via ce système n'étaient enregistrées que dans TON navigateur. Un visiteur externe — un recruteur — ouvrant cette page depuis son propre ordinateur voyait toujours "Aucune image", quoi que tu aies uploadé de ton côté. Ce n'était pas un bug mineur, la page ne pouvait structurellement pas remplir son rôle.<br><br>
+      <b>Comment remplir chaque emplacement, méthode qui fonctionne réellement :</b><br>
+      1. Dans le repo GitHub, crée un dossier <b>certs/</b> à la racine (à côté de index.html) s'il n'existe pas déjà.<br>
+      2. Dépose chaque certificat en image (JPG/PNG) avec le nom exact indiqué sous chaque emplacement ci-dessus.<br>
+      3. GitHub Pages sert le fichier automatiquement — aucune modification de code nécessaire, aucun risque de casser un lien.<br>
+      <span class="warn">⚠ Tant qu'un fichier n'est pas déposé, l'encadré en pointillé reste affiché tel quel — c'est voulu, ça ne casse rien visuellement, contrairement à un lien mort ou une iframe vide.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sec-tag" style="background:rgba(201,122,59,0.12); color:#C97A3B;">contact</div>
+    <h2 style="margin-top:14px;">Parlons de votre prochaine alternance.</h2>
+    <p class="lede">Disponible pour un rythme 3 semaines entreprise / 1 semaine école à partir de septembre 2026.</p>
+    <div class="contact-row">
+      <a class="contact-pill" href="mailto:abdallahnasr162@gmail.com">abdallahnasr162@gmail.com</a>
+      <a class="contact-pill" href="tel:0660326772">06 60 32 67 72</a>
+      <a class="contact-pill" href="https://www.linkedin.com/in/abdallah-nasr-a91b28177" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="contact-pill" href="https://github.com/abdallan10" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Abdalla NASR — Paris, France</span>
+      <span><a href="contact.html">Page contact complète →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="common.js"></script>
+</body>
+</html>
